@@ -1,6 +1,5 @@
-OBJ = obj/my_readline.o 	\
-	  obj/main.o        	\
-	  obj/str_handling.o
+OBJ = main.o        	\
+	  my_readline.o
 
 CFLAGS += -Wall -Wextra -Werror
 
@@ -13,7 +12,7 @@ CC = gcc
 RM = rm
 
 $(NAME): $(OBJ)
-	$(CC) $(NAME) $(OBJ) $(CFLAGS)
+	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 
 clean:
 	$(RM) $(OBJ)
