@@ -16,3 +16,4 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
+	$(RM) $(NAME)
