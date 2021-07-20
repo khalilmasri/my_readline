@@ -1,5 +1,6 @@
-OBJ = main.o        	\
-	  my_readline.o
+OBJ = src/main.o        		\
+	  src/my_readline.o     	\
+	  src/string_management.o
 
 CFLAGS += -Wall -Wextra -Werror
 
