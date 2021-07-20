@@ -1,3 +1,4 @@
 *.txt
-./text.txt
+text.txt
 my_readline
+*.o
