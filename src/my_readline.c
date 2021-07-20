@@ -29,9 +29,11 @@ void create_stdin(int fd, char **argv, int argc){
 
         index++;
     }
+
     my_strcat(ret_str, "\0");
 
     write(fd, ret_str, size);
+    free(ret_str);
 }
 
 
