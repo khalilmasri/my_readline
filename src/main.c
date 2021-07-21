@@ -4,15 +4,24 @@ int main(int argc, char **argv){
 
     char *ret_str ;
     int file;
+    option_t option;
     
     static char buffer[READLINE_READ_SIZE+1];
 
     if(argc < 2)
         file = open("./text.txt", O_RDONLY);
     else if(argc >= 2){
-        file = open("./stdin.txt", O_CREAT | O_WRONLY);
-        create_stdin(file, argv, argc);
-        file = open("./stdin.txt", O_RDONLY);
+
+        option = check_option(argc, argv);
+
+         if(option == s)
+             file = STDIN_FILENO;
+         else if(option == f)
+             file = open(argv[2], O_RDONLY);
+         else if(option == ERROROPT){
+             printf("option provided isn't valid.\n");
+             return 1;
+         }
     }
 
     if(file < 0){
@@ -27,8 +36,6 @@ int main(int argc, char **argv){
     free(ret_str);
     close(file);
 
-    if(argc >= 2)
-        remove("./stdin.txt");
 
     return 0;
 }
