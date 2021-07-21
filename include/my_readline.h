@@ -8,10 +8,16 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define READLINE_READ_SIZE 10
+#define READLINE_READ_SIZE 7
+
+typedef enum{
+    s,
+    f,
+    ERROROPT
+} option_t; 
 
 char *my_readline(int fd, char *buffer);
-void create_stdin(int fd, char **argv, int argc);
+option_t check_option(int argc, char **argv);
 
 #endif
 
